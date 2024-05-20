@@ -1,72 +1,51 @@
-# Getting Started with Create React App
+MEDIFY - Medical Center Slot Booking Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project Overview:- 
+MEDIFY is a React-based web application designed to help users find medical centers in specific states and cities across the USA and book appointments. This platform allows users to search for medical centers, view available appointment slots, and manage their bookings through a responsive and user-friendly interface.
 
-## Available Scripts
+Key Features:-
 
-In the project directory, you can run:
+1. Landing Page
+Top Navigation Bar: Access sections like Find Doctors, Hospitals, Medicines, etc.
+Search Section: Users can select a state and city from dropdowns to view available medical centers.
 
-### `npm start`
+2. Responsive Design: Fully responsive layout adhering to the provided Figma design.
+Carousels: Implemented using the Swiper library.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. Search Results Page
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4. Medical Center Listings: Display available medical centers in the selected location with options to book appointments.
 
-### `npm test`
+5. Booking Interface
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+6. Detailed Booking Section: Allows users to select a medical center and choose an appointment date from a calendar.
+Appointment Slots: Users can book appointments within a timeframe from today up to one week in advance.
 
-### `npm run build`
+7. My Bookings Page
+Personalized Bookings: Displays all user bookings with details like medical center name, appointment date, and time.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+API Endpoints:- 
+Get list of all states: https://meddata-backend.onrender.com/states
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Get list of all cities for a state: https://meddata-backend.onrender.com/cities/:state (e.g., https://meddata-backend.onrender.com/cities/Alaska)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Get list of all medical centers based on state and city: https://meddata-backend.onrender.com/data?state=<state-name>&city=<city-name> (e.g., https://meddata-backend.onrender.com/data?state=Alaska&city=SOLDOTNA)
 
-### `npm run eject`
+Local Setup and Deployment:- 
+Prerequisites
+Node.js
+npm or yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Deployment:-
+The application is deployed on Vercel. You can view the live version at: ""
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Technologies Used
+React: Front-end library for building user interfaces
+Axios: For making API requests
+Swiper: For implementing carousels
+Material-UI (MUI): For UI components and styling
+LocalStorage: To persist user data
+Vercel: For deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# Medify" 
-"# Medify" 
+Contributions:-
+Feel free to submit pull requests or report issues. Contributions are welcome!
