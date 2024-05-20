@@ -60,7 +60,9 @@ export default function NavBar() {
     );
   } else {
     return (
-      <AppBar position="static">
+      <AppBar position="static" sx={{
+        background: 'linear-gradient(81deg, #e7f0ff 9.01%, rgba(232, 241, 255, 0.47) 89.11%)',
+      }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <IconButton
@@ -73,7 +75,7 @@ export default function NavBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Medify style={{ width: "92px", height: "27px" }} />
+            <Medify style={{ width: "92px", height: "27px",marginLeft:"auto%",marginRight:"auto" }} />
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <Menu
