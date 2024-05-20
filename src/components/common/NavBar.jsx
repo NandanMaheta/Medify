@@ -78,34 +78,128 @@ export default function NavBar() {
             <Medify style={{ width: "92px", height: "27px",marginLeft:"auto%",marginRight:"auto" }} />
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
-              >
-                <ul >
-                  <li onClick={() => window.location.reload()}>Find Doctors</li>
-                  <li >Hospitals</li>
-                  <li >Medicines</li>
-                  <li >Surgeries</li>
-                  <li >Software for provider</li>
-                  <li >Facilities</li>
-                </ul>
-              </Menu>
-            </Box>
+  <Menu
+    id="menu-appbar"
+    anchorEl={anchorElNav}
+    anchorOrigin={{
+      vertical: "bottom",
+      horizontal: "left",
+    }}
+    keepMounted
+    transformOrigin={{
+      vertical: "top",
+      horizontal: "left",
+    }}
+    open={Boolean(anchorElNav)}
+    onClose={handleCloseNavMenu}
+    sx={{
+      display: { xs: "block", md: "none" },
+    }}
+  >
+    <ul
+      style={{
+        listStyle: "none",
+        padding: 0,
+        margin: 0,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "start",
+      }}
+    >
+      <li
+        style={{
+          height: "21px",
+          fontSize: "14px",
+          fontFamily: "Poppins",
+          fontWeight: "400",
+          marginTop: "4px",
+          marginBottom: "3px",
+          lineHeight: "21px",
+          color: "#102851",
+          cursor: "pointer",
+        }}
+        onClick={() => window.location.reload()}
+      >
+        Find Doctors
+      </li>
+      <li
+        style={{
+          height: "21px",
+          fontSize: "14px",
+          fontFamily: "Poppins",
+          fontWeight: "400",
+          marginTop: "4px",
+          marginBottom: "3px",
+          lineHeight: "21px",
+          color: "#102851",
+          cursor: "pointer",
+        }}
+      >
+        Hospitals
+      </li>
+      <li
+        style={{
+          height: "21px",
+          fontSize: "14px",
+          fontFamily: "Poppins",
+          fontWeight: "400",
+          marginTop: "4px",
+          marginBottom: "3px",
+          lineHeight: "21px",
+          color: "#102851",
+          cursor: "pointer",
+        }}
+      >
+        Medicines
+      </li>
+      <li
+        style={{
+          height: "21px",
+          fontSize: "14px",
+          fontFamily: "Poppins",
+          fontWeight: "400",
+          marginTop: "4px",
+          marginBottom: "3px",
+          lineHeight: "21px",
+          color: "#102851",
+          cursor: "pointer",
+        }}
+      >
+        Surgeries
+      </li>
+      <li
+        style={{
+          height: "21px",
+          fontSize: "14px",
+          fontFamily: "Poppins",
+          fontWeight: "400",
+          marginTop: "4px",
+          marginBottom: "3px",
+          lineHeight: "21px",
+          color: "#102851",
+          cursor: "pointer",
+        }}
+      >
+        Software for provider
+      </li>
+      <li
+        style={{
+          height: "21px",
+          fontSize: "14px",
+          fontFamily: "Poppins",
+          fontWeight: "400",
+          marginTop: "4px",
+          marginBottom: "3px",
+          lineHeight: "21px",
+          color: "#102851",
+          cursor: "pointer",
+        }}
+      >
+        Facilities
+      </li>
+    </ul>
+  </Menu>
+</Box>
   
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" },minHeight: '64px' }}>
             <ul sx={{height:"21px"}} >
