@@ -4,15 +4,9 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import { useWidth } from "../../customhook";
 import styles from "./NavBar.module.css";
 
@@ -42,9 +36,9 @@ export default function NavBar() {
   if (width > 768) {
     return (
       <nav className={styles.NavBarWrapper}>
-        <div className={styles.Navicon}>
-          <Medify style={{ width: "92px", height: "27px" }} />
-        </div>
+        
+          <Medify style={{ width: "92px", height: "27px",marginLeft:"95px" }} />
+        
         <div className={styles.NavBarMenu}>
           <ul className={styles.subCont}>
             <li className={styles.menu}>Find Doctors</li>

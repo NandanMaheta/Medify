@@ -1,3 +1,9 @@
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
 .NavBarWrapper {
   background: linear-gradient(
     81deg,
@@ -8,7 +14,7 @@
   height: 96px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+
 
   
   @media screen and (max-width: 768px) {
@@ -21,15 +27,17 @@
 }
 
 .NavBarMenu {
+  margin-left: 70px;
   display: flex;
   width: 912px;
   height: 40px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 0;
   }
 }
 
@@ -39,7 +47,7 @@
   display: flex;
   list-style: none;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -75,4 +83,9 @@
     margin-top: 16px;
     margin-left: 0;
   }
+}
+
+.Navicon{
+  margin-left: 95px;
+  padding: 0;
 }

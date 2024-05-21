@@ -1,0 +1,142 @@
+.LandingPage{
+  width: 100%;
+  height: 100%;
+}
+
+.HeroSecWrapper {
+    width: 100%;
+    height: 736px;
+    background: linear-gradient(
+      81deg,
+      #e7f0ff 9.01%,
+      rgba(232, 241, 255, 0.47) 89.11%
+    );
+    display: flex;
+    justify-content: space-around;
+   
+    @media screen and (max-width: 768px) {
+      height: auto;
+      flex-direction: column;
+      padding: 20px;
+      text-align: center;
+      }
+  }
+  
+  .TextWrapper {
+    width: 663px;
+    height: 207px;
+    margin-left: 95px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 35px;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      height: auto;
+      margin-left: 0;
+      align-items: center;
+      }
+  }
+  
+  .FirstPara {
+    width: 663px;
+    height: 128px;
+    margin-bottom: 25px;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      height: auto;
+      text-align: center;
+  
+      }
+  }
+  
+  .HeroText {
+    font-family: "Poppins";
+    font-size: 31px;
+    font-weight: 500;
+    line-height: 68px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: #000000;
+
+    @media screen and (max-width: 768px) {
+      font-size: 24px;
+      line-height: 1.2;
+      }
+  }
+  
+  .HeroSpan {
+    font-family: "Poppins";
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 68px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: #000000;
+    @media screen and (max-width: 768px) {
+      font-size: 36px;
+      line-height: 1.2;
+    }
+  }
+  
+  .HeroSpan2 {
+    font-family: "Poppins";
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 68px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: #102851;
+
+    @media screen and (max-width: 768px) {
+      font-size: 36px;
+      line-height: 1.2;
+    }
+  }
+  
+  .HeroPara {
+    width: 570px;
+    height: 64px;
+    color: #5C6169;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      height: auto;
+      text-align: center;
+    }
+  }
+  
+  .HeroButton {
+    width: 177px;
+    height: 48px;
+    border: 0;
+    border-radius: 8px;
+    padding: 12px 36px 12px 36px;
+    background: #2AA8FF;
+    color: #FFFFFF;
+    font-family: "Poppins";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 2%;
+
+    @media screen and (max-width: 768px) {
+      width: auto;
+      padding: 12px 24px;
+    }
+    
+  }
+
+  .HeroButton:hover {
+    cursor: pointer;
+    background: #1E90FF;
+  }
+
+ 
+
+ 
+
+ 
