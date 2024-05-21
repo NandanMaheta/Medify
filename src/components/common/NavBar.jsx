@@ -55,7 +55,7 @@ export default function NavBar() {
   } else {
     return (
       <AppBar position="static" sx={{
-        background: 'linear-gradient(81deg, #e7f0ff 9.01%, rgba(232, 241, 255, 0.47) 89.11%)',
+        background: 'linear-gradient(81deg, #e7f0ff 9.01%, rgba(232, 241, 255, 0.47) 89.11%)',padding:"10px"
       }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>

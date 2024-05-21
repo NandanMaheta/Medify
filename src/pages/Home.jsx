@@ -10,16 +10,16 @@ export default function Home() {
     const {width} = useWidth();
     
   return (
-    <div className={styles.LandingPage}>
-      <Header />
+    <div >
+      <Header/>
       <NavBar />
       <div className={styles.HeroSecWrapper}>
         <div className={styles.TextWrapper}>
           <div className={styles.FirstPara}>
-            <p className={styles.HeroText}>
+            {width>= 768 ? <p className={styles.HeroText}>
               Skip the travel! Find Online
-            </p>
-            <span className={styles.HeroSpan}>Medical</span>{" "}
+            </p> : null}
+            <span className={styles.HeroSpan}>Medical </span>{" "}
             <span className={styles.HeroSpan2}>Centers</span>
           </div>
 
@@ -34,7 +34,7 @@ export default function Home() {
             <button className={styles.HeroButton}>Find Centers</button>
           </div>
         </div>
-        {width>768 ? <HeroImg /> : <HeroImg width="80%" height="auto%" />}
+        {width>768 ? <HeroImg /> : <HeroImg width="60%" height="50%" style={{display:"flex",justifyContent:"center",alignItems:"center", marginLeft:"auto",marginRight:"auto",textAlign:"auto",marginTop:"10px"}}/>}
 
         
       </div>

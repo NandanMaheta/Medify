@@ -18,9 +18,9 @@
 
   
   @media screen and (max-width: 768px) {
-    width: 100%;
+    
     height: auto;
-    padding: 16px;
+    /* padding: 400px; */
     flex-direction: column;
     align-items: flex-start;
   }
@@ -35,6 +35,7 @@
   justify-content: space-around;
 
   @media screen and (max-width: 768px) {
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     margin-left: 0;
@@ -50,6 +51,7 @@
   justify-content: space-evenly;
 
   @media screen and (max-width: 768px) {
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -80,6 +82,7 @@
   color: #ffffff;
 
   @media screen and (max-width: 768px) {
+    width: 100%;
     margin-top: 16px;
     margin-left: 0;
   }
