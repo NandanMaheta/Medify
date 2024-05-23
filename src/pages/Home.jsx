@@ -76,7 +76,7 @@ export default function Home() {
   
     return (
       <div className={stylesForm.SearchFormWrapper}>
-        <div className={stylesForm.InputWrapper}>
+      
           <form onSubmit={handleSubmit}>
             <div>
               <SearchBar
@@ -102,7 +102,7 @@ export default function Home() {
               </button>
             </div>
           </form>
-        </div>
+        
         <div className={stylesForm.BottomWrapper}>
           <div className={stylesForm.BottomTextWrapper}><p className={stylesForm.BottomText}>You may be looking for</p></div>
           <div className={stylesForm.OptionsWrapper}>
