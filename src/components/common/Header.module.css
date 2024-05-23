@@ -5,14 +5,16 @@
 }
 
 .Header {
-  width: 100%;
+  width: 1440px;
   background-color: #2aa7ff;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   @media screen and (max-width: 768px) {
+    width: 100%;
     height: auto;
     flex-wrap: wrap;
     padding: 10px
