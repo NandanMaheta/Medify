@@ -13,6 +13,7 @@ import { useWidth } from "../customhook";
 import SearchBar from "../components/common/SearchBar";
 import stylesForm from "./HomePageCSS/SearchForm.module.css";
 import { useState } from "react";
+import stylesADV from "./HomePageCSS/AdvertiseSwiper.module.css";
 
 export default function Home() {
   const { width } = useWidth();
@@ -115,12 +116,20 @@ export default function Home() {
       </div>
     );
   };
+
+  const AdvertiseSwiper = () => {
+    return(
+      <div className={stylesADV.AdvertiseSwiperWrapper}></div>
+    )
+
+  }
   return (
     <div className={styles.LandingPage}>
       <Header />
       <NavBar />
       <HeroSection />
       <SearchForm />
+      <AdvertiseSwiper/>
     </div>
   );
 }
