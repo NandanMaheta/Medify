@@ -86,12 +86,7 @@
     @media screen and (max-width: 768px) {
       font-size: 36px;
       line-height: 1.2;
-      text-align: center;
-      /* display: flex;
-      flex-wrap: wrap; */
-      /* margin-left: auto;
-      margin-right: auto; */
-      display: block;
+      
     }
   }
   
@@ -107,12 +102,7 @@
     @media screen and (max-width: 768px) {
       font-size: 36px;
       line-height: 1.2;
-      text-align: center;
-      /* display: flex;
-      flex-wrap: wrap; */
-      /* margin-left: auto;
-      margin-right: auto; */
-      display: block;
+      
     }
   }
   
