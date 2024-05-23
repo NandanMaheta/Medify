@@ -1,0 +1,60 @@
+.AdvertiseWrapper {
+  height: 429px;
+  width: 1440px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 40px;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+    }
+
+}
+
+.ImageWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  @media screen and (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+    width: 80%;
+    justify-content: space-around;
+    }
+}
+
+.img{
+    @media screen and (max-width: 768px) {
+        margin-bottom: 100px;
+        }
+}
+
+.BottomWrapper {
+  width: 1150px;
+  height: 37px;
+  padding: 9px 0px 18px 0px;
+  text-align: center;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+    width: 80%;
+    justify-content: space-around;
+    /* align-items: center; */
+    }
+
+}
+
+.imgAdv{
+    @media screen and (max-width: 768px) {
+        height: auto;
+        flex-direction: column;
+        width: 10%;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 20px;
+        }
+}

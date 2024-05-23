@@ -13,7 +13,12 @@ import { useWidth } from "../customhook";
 import SearchBar from "../components/common/SearchBar";
 import stylesForm from "./HomePageCSS/SearchForm.module.css";
 import { useState } from "react";
-import stylesADV from "./HomePageCSS/AdvertiseSwiper.module.css";
+import stylesADV from "./HomePageCSS/Advertise.module.css";
+import item1 from "../assests/AdvCarouselItem1.svg";
+import item2 from "../assests/AdvCarouselitem2.svg";
+import item3 from "../assests/AdvCarouselItem3.svg";
+import { ReactComponent as NSDot } from "../assests/NotSelectedDot.svg";
+import { ReactComponent as SDot } from "../assests/SelectedDot.svg";
 
 export default function Home() {
   const { width } = useWidth();
@@ -63,73 +68,131 @@ export default function Home() {
   };
 
   const SearchForm = () => {
-    const [state, setState] = useState('');
-    const [city, setCity] = useState('');
-  
+    const [state, setState] = useState("");
+    const [city, setCity] = useState("");
+
     const handleSubmit = (event) => {
       event.preventDefault();
       // Handle form submission logic here
-      console.log('Form submitted');
-      console.log('State:', state);
-      console.log('City:', city);
+      console.log("Form submitted");
+      console.log("State:", state);
+      console.log("City:", city);
     };
-  
+
     return (
       <div className={stylesForm.SearchFormWrapper}>
-      
-          <form onSubmit={handleSubmit}>
-            <div>
-              <SearchBar
-                placeholder="State"
-                name="StateForm"
-                value={state}
-                onChange={(e) => setState(e.target.value)}
-                
-              />
-            </div>
-            <div>
-              <SearchBar
-                placeholder="City"
-                name="CityForm"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-              />
-            </div>
-            <div>
-              <button type="submit" className={stylesForm.SubmitButton}>
-                <SearchWhite />
-                <span style={{ marginLeft: '10px' }}>Search</span>
-              </button>
-            </div>
-          </form>
-        
+        <form onSubmit={handleSubmit}>
+          <div>
+            <SearchBar
+              placeholder="State"
+              name="StateForm"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+            />
+          </div>
+          <div>
+            <SearchBar
+              placeholder="City"
+              name="CityForm"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </div>
+          <div>
+            <button type="submit" className={stylesForm.SubmitButton}>
+              <SearchWhite />
+              <span style={{ marginLeft: "10px" }}>Search</span>
+            </button>
+          </div>
+        </form>
+
         <div className={stylesForm.BottomWrapper}>
-          <div className={stylesForm.BottomTextWrapper}><p className={stylesForm.BottomText}>You may be looking for</p></div>
+          <div className={stylesForm.BottomTextWrapper}>
+            <p className={stylesForm.BottomText}>You may be looking for</p>
+          </div>
           <div className={stylesForm.OptionsWrapper}>
-            <div className={stylesForm.Options}><Doctor/><span>Doctors</span></div>
-            <div className={stylesForm.Options}><DrugStore/><span>Labs</span></div>
-            <div className={stylesForm.Options} style={{background: "#2AA7FF14"}}><Hospital/><span>Hospitals</span></div>
-            <div className={stylesForm.Options}><Capsule/><span>Medical Store</span></div>
-            <div className={stylesForm.Options}><Ambulance/><span>Ambulance</span></div>
+            <div className={stylesForm.Options}>
+              <Doctor />
+              <span>Doctors</span>
+            </div>
+            <div className={stylesForm.Options}>
+              <DrugStore />
+              <span>Labs</span>
+            </div>
+            <div
+              className={stylesForm.Options}
+              style={{ background: "#2AA7FF14" }}
+            >
+              <Hospital />
+              <span>Hospitals</span>
+            </div>
+            <div className={stylesForm.Options}>
+              <Capsule />
+              <span>Medical Store</span>
+            </div>
+            <div className={stylesForm.Options}>
+              <Ambulance />
+              <span>Ambulance</span>
+            </div>
           </div>
         </div>
       </div>
     );
   };
 
-  const AdvertiseSwiper = () => {
-    return(
-      <div className={stylesADV.AdvertiseSwiperWrapper}></div>
-    )
+  const Advertise = () => {
+    const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  }
+    return (
+      <div className={stylesADV.AdvertiseWrapper}>
+        <div className={stylesADV.ImageWrapper}>
+          <img
+            src={item1}
+            alt=""
+            onMouseEnter={() => setHoveredIndex(0)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          />
+          <img
+            src={item2}
+            alt=""
+            onMouseEnter={() => setHoveredIndex(1)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          />
+          <img
+            src={item3}
+            alt=""
+            onMouseEnter={() => setHoveredIndex(2)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          />
+        </div>
+        <div className={stylesADV.BottomWrapper}>
+          {hoveredIndex === 0 ? (
+            <SDot className={stylesADV.imgAdv} style={{ marginRight: "15px" }}  />
+          ) : (
+            <NSDot className={stylesADV.imgAdv} style={{ marginRight: "15px" }} />
+          )}
+          {hoveredIndex === 1 ? (
+            <SDot className={stylesADV.imgAdv} style={{ marginRight: "15px" }} />
+          ) : (
+            <NSDot className={stylesADV.imgAdv} style={{ marginRight: "15px" }} />
+          )}
+          {hoveredIndex === 2 ? (
+            <SDot className={stylesADV.imgAdv} style={{ marginRight: "15px" }} />
+          ) : (
+            <NSDot className={stylesADV.imgAdv} style={{ marginRight: "15px" }} />
+          )}
+        </div>
+      </div>
+    );
+  };
+  
   return (
     <div className={styles.LandingPage}>
       <Header />
       <NavBar />
       <HeroSection />
       <SearchForm />
-      <AdvertiseSwiper/>
+      <Advertise />
     </div>
   );
 }
