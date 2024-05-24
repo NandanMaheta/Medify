@@ -28,7 +28,7 @@ import piscology from "../assests/piscologist.png"
 import stetoscope from "../assests/Stethoscope.png"
 import mri from "../assests/MRI.png"
 import dentistery from "../assests/Dentistery.png"
-
+import Carl from "../components/common/Carousel1";
 export default function Home() {
   const { width } = useWidth();
 
@@ -250,6 +250,7 @@ export default function Home() {
       <SearchForm />
       <Advertise />
       <Specialization />
+      {<Carl/> && <Car1/>}
     </div>
   );
 }

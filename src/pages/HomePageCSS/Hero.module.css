@@ -2,6 +2,10 @@
   width: 1440px;
   height: 100%;
   /* text-align: center; */
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    }
 }
 
 .HeroSecWrapper {
@@ -36,7 +40,7 @@
     /* margin-top: 35px; */
     
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 880px) {
       width: 100%;
       height: auto;
       margin-left: 0;
