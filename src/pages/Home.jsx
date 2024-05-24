@@ -111,14 +111,14 @@ export default function Home() {
             <p className={stylesForm.BottomText}>You may be looking for</p>
           </div>
           <div className={stylesForm.OptionsWrapper}>
-            <div className={stylesForm.Options}>
+            {width > 768 && <div className={stylesForm.Options}>
               <Doctor />
               <span>Doctors</span>
-            </div>
-            <div className={stylesForm.Options}>
+            </div>}
+            {width > 768 && <div className={stylesForm.Options}>
               <DrugStore />
               <span>Labs</span>
-            </div>
+            </div>}
             <div
               className={stylesForm.Options}
               style={{ background: "#2AA7FF14" }}
@@ -126,14 +126,14 @@ export default function Home() {
               <Hospital />
               <span>Hospitals</span>
             </div>
-            <div className={stylesForm.Options}>
+            {width > 768 && <div className={stylesForm.Options}>
               <Capsule />
               <span>Medical Store</span>
-            </div>
-            <div className={stylesForm.Options}>
+            </div>}
+            {width > 768 && <div className={stylesForm.Options}>
               <Ambulance />
               <span>Ambulance</span>
-            </div>
+            </div>}
           </div>
         </div>
       </div>
@@ -151,35 +151,38 @@ export default function Home() {
             alt=""
             onMouseEnter={() => setHoveredIndex(0)}
             onMouseLeave={() => setHoveredIndex(null)}
+            style={width < 768 ? { width: '280px', height: 'auto' } : {}}
           />
           <img
             src={item2}
             alt=""
             onMouseEnter={() => setHoveredIndex(1)}
             onMouseLeave={() => setHoveredIndex(null)}
+            style={width < 768 ? { width: '280px', height: 'auto' } : {}}
           />
           <img
             src={item3}
             alt=""
             onMouseEnter={() => setHoveredIndex(2)}
             onMouseLeave={() => setHoveredIndex(null)}
+            style={width < 768 ? { width: '280px', height: 'auto' } : {}}
           />
         </div>
         <div className={stylesADV.BottomWrapper}>
           {hoveredIndex === 0 ? (
-            <SDot className={stylesADV.imgAdv} style={{ marginRight: "15px" }}  />
+            <SDot className={stylesADV.imgAdv} style={{ marginRight: "10px" }}  />
           ) : (
-            <NSDot className={stylesADV.imgAdv} style={{ marginRight: "15px" }} />
+            <NSDot className={stylesADV.imgAdv} style={{ marginRight: "10px" }} />
           )}
           {hoveredIndex === 1 ? (
-            <SDot className={stylesADV.imgAdv} style={{ marginRight: "15px" }} />
+            <SDot className={stylesADV.imgAdv} style={{ marginRight: "10px" }} />
           ) : (
-            <NSDot className={stylesADV.imgAdv} style={{ marginRight: "15px" }} />
+            <NSDot className={stylesADV.imgAdv} style={{ marginRight: "10px" }} />
           )}
           {hoveredIndex === 2 ? (
-            <SDot className={stylesADV.imgAdv} style={{ marginRight: "15px" }} />
+            <SDot className={stylesADV.imgAdv} style={{ marginRight: "10px" }} />
           ) : (
-            <NSDot className={stylesADV.imgAdv} style={{ marginRight: "15px" }} />
+            <NSDot className={stylesADV.imgAdv} style={{ marginRight: "10px" }} />
           )}
         </div>
       </div>
