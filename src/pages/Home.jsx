@@ -19,6 +19,15 @@ import item2 from "../assests/AdvCarouselitem2.svg";
 import item3 from "../assests/AdvCarouselItem3.svg";
 import { ReactComponent as NSDot } from "../assests/NotSelectedDot.svg";
 import { ReactComponent as SDot } from "../assests/SelectedDot.svg";
+import stylesSpc from "./HomePageCSS/Specialization.module.css";
+import blood from "../assests/blood.png"
+import cardiology from "../assests/cardiology.png"
+import xray from "../assests/X-Ray.png"
+import laboratory from "../assests/laboratory.png"
+import piscology from "../assests/piscologist.png"
+import stetoscope from "../assests/Stethoscope.png"
+import mri from "../assests/MRI.png"
+import dentistery from "../assests/Dentistery.png"
 
 export default function Home() {
   const { width } = useWidth();
@@ -111,14 +120,18 @@ export default function Home() {
             <p className={stylesForm.BottomText}>You may be looking for</p>
           </div>
           <div className={stylesForm.OptionsWrapper}>
-            {width > 768 && <div className={stylesForm.Options}>
-              <Doctor />
-              <span>Doctors</span>
-            </div>}
-            {width > 768 && <div className={stylesForm.Options}>
-              <DrugStore />
-              <span>Labs</span>
-            </div>}
+            {width > 768 && (
+              <div className={stylesForm.Options}>
+                <Doctor />
+                <span>Doctors</span>
+              </div>
+            )}
+            {width > 768 && (
+              <div className={stylesForm.Options}>
+                <DrugStore />
+                <span>Labs</span>
+              </div>
+            )}
             <div
               className={stylesForm.Options}
               style={{ background: "#2AA7FF14" }}
@@ -126,14 +139,18 @@ export default function Home() {
               <Hospital />
               <span>Hospitals</span>
             </div>
-            {width > 768 && <div className={stylesForm.Options}>
-              <Capsule />
-              <span>Medical Store</span>
-            </div>}
-            {width > 768 && <div className={stylesForm.Options}>
-              <Ambulance />
-              <span>Ambulance</span>
-            </div>}
+            {width > 768 && (
+              <div className={stylesForm.Options}>
+                <Capsule />
+                <span>Medical Store</span>
+              </div>
+            )}
+            {width > 768 && (
+              <div className={stylesForm.Options}>
+                <Ambulance />
+                <span>Ambulance</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -151,44 +168,80 @@ export default function Home() {
             alt=""
             onMouseEnter={() => setHoveredIndex(0)}
             onMouseLeave={() => setHoveredIndex(null)}
-            style={width < 768 ? { width: '280px', height: 'auto' } : {}}
+            style={width < 768 ? { width: "280px", height: "auto" } : {}}
           />
           <img
             src={item2}
             alt=""
             onMouseEnter={() => setHoveredIndex(1)}
             onMouseLeave={() => setHoveredIndex(null)}
-            style={width < 768 ? { width: '280px', height: 'auto' } : {}}
+            style={width < 768 ? { width: "280px", height: "auto" } : {}}
           />
           <img
             src={item3}
             alt=""
             onMouseEnter={() => setHoveredIndex(2)}
             onMouseLeave={() => setHoveredIndex(null)}
-            style={width < 768 ? { width: '280px', height: 'auto' } : {}}
+            style={width < 768 ? { width: "280px", height: "auto" } : {}}
           />
         </div>
         <div className={stylesADV.BottomWrapper}>
           {hoveredIndex === 0 ? (
-            <SDot className={stylesADV.imgAdv} style={{ marginRight: "10px" }}  />
+            <SDot
+              className={stylesADV.imgAdv}
+              style={{ marginRight: "10px" }}
+            />
           ) : (
-            <NSDot className={stylesADV.imgAdv} style={{ marginRight: "10px" }} />
+            <NSDot
+              className={stylesADV.imgAdv}
+              style={{ marginRight: "10px" }}
+            />
           )}
           {hoveredIndex === 1 ? (
-            <SDot className={stylesADV.imgAdv} style={{ marginRight: "10px" }} />
+            <SDot
+              className={stylesADV.imgAdv}
+              style={{ marginRight: "10px" }}
+            />
           ) : (
-            <NSDot className={stylesADV.imgAdv} style={{ marginRight: "10px" }} />
+            <NSDot
+              className={stylesADV.imgAdv}
+              style={{ marginRight: "10px" }}
+            />
           )}
           {hoveredIndex === 2 ? (
-            <SDot className={stylesADV.imgAdv} style={{ marginRight: "10px" }} />
+            <SDot
+              className={stylesADV.imgAdv}
+              style={{ marginRight: "10px" }}
+            />
           ) : (
-            <NSDot className={stylesADV.imgAdv} style={{ marginRight: "10px" }} />
+            <NSDot
+              className={stylesADV.imgAdv}
+              style={{ marginRight: "10px" }}
+            />
           )}
         </div>
       </div>
     );
   };
-  
+
+  const Specialization = () => {
+    return (
+      <div className={stylesSpc.Wrapper}>
+        <p className={stylesSpc.text}>Find by specialisation</p>
+        <div className={stylesSpc.iconwrapper}>
+          <div className={stylesSpc.item}><img src={dentistery} alt="Dentistry" /><span>Dentistry</span></div>
+          <div className={stylesSpc.item}><img src={stetoscope} alt="Primary Care" /><span>Primary Care</span></div>
+          <div className={stylesSpc.item}><img src={cardiology} alt="Cardiology" /><span>Cardiology</span></div>
+          <div className={stylesSpc.item}><img src={mri} alt="MRI Resanance" /><span>MRI Resanance</span></div>
+          <div className={stylesSpc.item}><img src={blood} alt="Blood Test" /><span>Blood Test</span></div>
+          <div className={stylesSpc.item}><img src={piscology} alt="Piscologist" /><span>Piscologist</span></div>
+          <div className={stylesSpc.item}><img src={laboratory} alt="Laboratory" /><span>Laboratory</span></div>
+          <div className={stylesSpc.item}><img src={xray} alt="X-Ray" /><span>X-Ray</span></div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className={styles.LandingPage}>
       <Header />
@@ -196,6 +249,7 @@ export default function Home() {
       <HeroSection />
       <SearchForm />
       <Advertise />
+      <Specialization />
     </div>
   );
 }
