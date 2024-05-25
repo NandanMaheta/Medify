@@ -33,7 +33,7 @@ export default function NavBar() {
     setAnchorElUser(null);
   };
 
-  if (width > 870) {
+  if (width > 1022) {
     return (
       <nav className={styles.NavBarWrapper}>
         
