@@ -121,13 +121,13 @@ export default function Home() {
             <p className={stylesForm.BottomText}>You may be looking for</p>
           </div>
           <div className={stylesForm.OptionsWrapper}>
-            {width > 768 && (
+            {width > 1023 && (
               <div className={stylesForm.Options}>
                 <Doctor />
                 <span>Doctors</span>
               </div>
             )}
-            {width > 768 && (
+            {width > 1023 && (
               <div className={stylesForm.Options}>
                 <DrugStore />
                 <span>Labs</span>
@@ -140,13 +140,13 @@ export default function Home() {
               <Hospital />
               <span>Hospitals</span>
             </div>
-            {width > 768 && (
+            {width > 1023 && (
               <div className={stylesForm.Options}>
                 <Capsule />
                 <span>Medical Store</span>
               </div>
             )}
-            {width > 768 && (
+            {width > 1023 && (
               <div className={stylesForm.Options}>
                 <Ambulance />
                 <span>Ambulance</span>
