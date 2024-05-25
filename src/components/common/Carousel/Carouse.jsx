@@ -1,57 +1,63 @@
-import React, { useRef, useState } from 'react';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
-
-import "./carousel.css"
-import image1 from "../../../assests/Doctor1.png"
-import image2 from "../../../assests/Doctor2.png"
-import image3 from "../../../assests/Doctor3.png"
-import { Navigation } from "swiper/modules";
-import { Autoplay } from "swiper/modules";
-
-// import required modules
-import { Pagination } from 'swiper/modules';
+import "./carousel.css";
+import image1 from "../../../assests/Doctor1.png";
+import image2 from "../../../assests/Doctor2.png";
+import image3 from "../../../assests/Doctor3.png";
+import React, { useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 export default function Carousel() {
   return (
     <>
       <Swiper
-      slidesPerView={4} // Display 3 slides in one view
-      spaceBetween={30} // Space between each slide
-    //   loop={true} // Enable loop mode
-      pagination={{ dynamicBullets: true }} // Enable pagination with dynamic bullets
-      navigation={true} // Enable navigation arrows
-      allowSlidePrev={true} // Allow slide to previous
-      allowSlideNext={true} // Allow slide to next
-      className="mySwiper"
-    //   allowTouchMove
-      autoplay={{
-        delay: 1,
-        disableOnInteraction: false,
-      }}
-    >
-        <SwiperSlide><img src={image1} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image2} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image3} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image1} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image2} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image3} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image1} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image2} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image3} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image1} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image2} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image3} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image1} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image2} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image3} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image1} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image2} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={image3} alt="" /></SwiperSlide>
-    
+        slidesPerView={4} // Display 4 slides in one view
+        spaceBetween={30} // Space between each slide
+        loop={true}
+        centeredSlides={true}
+        autoplay={{
+          delay: 1000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        allowTouchMove={true} 
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <div className="SlideWrapper"><img src={image1} />
+          <div className="TextWrapper"><span className="DoctorName">Dr. Nandan Maheta</span><span className="DoctorSpe">Cardiologist</span></div></div>
+          
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={image2} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={image3} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={image1} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={image2} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={image3} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={image1} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={image2} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={image3} />
+        </SwiperSlide>
       </Swiper>
     </>
   );

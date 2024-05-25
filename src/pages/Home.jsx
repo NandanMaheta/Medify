@@ -29,6 +29,7 @@ import stetoscope from "../assests/Stethoscope.png"
 import mri from "../assests/MRI.png"
 import dentistery from "../assests/Dentistery.png"
 import Carousel from "../components/common/Carousel/Carouse";
+import styleCar from "./HomePageCSS/Car.module.css"
 
 export default function Home() {
   const { width } = useWidth();
@@ -243,7 +244,14 @@ export default function Home() {
     );
   };
 
-  
+  const Carousel = () => {
+    return(
+      <div className={styleCar.Wrapper}>
+        <p className={styleCar.Text}>Our Medical Specialist</p>
+        <div className={styleCar.Carousel}><Carousel/></div>
+      </div>
+    )
+  }
 
   return (
     <div className={styles.LandingPage}>
@@ -253,7 +261,8 @@ export default function Home() {
       <SearchForm />
       <Advertise />
       <Specialization />
-      {/* <Carousel/> */}
+      <Carousel/>
+      
      
     </div>
   );
