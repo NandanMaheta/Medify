@@ -1,6 +1,6 @@
 .Wrapper{
-    width: 1440px;
-    height: 819px;
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,12 +16,16 @@ font-weight: 600;
 line-height: 67px;
 text-align: center;
 color: #1B3C74;
+margin-bottom: 40px;
+margin-top: 40px;
 
 
 }
 
-.Carousel{
+.Carousel1{
     height: 565px;
 
 }
+
+
 

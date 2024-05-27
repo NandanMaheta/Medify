@@ -8,8 +8,6 @@
   text-align: center;
   font-size: 18px;
   background: #fff;
-
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,10 +15,12 @@
 }
 
 .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
+  /* display: block; */
+  /* width: 100%;
+  height: 100%; */
   object-fit: cover;
+  /* display: block; */
+  width: 76%;
 }
 
 .SlideWrapper{
@@ -28,6 +28,7 @@
   width: 370px;
   justify-content: space-between;
   text-align: center;
+  margin-bottom: 30px;
 
 }
 
@@ -60,5 +61,28 @@ line-height: 27px;
 text-align: center;
 color: #2AA7FF;
 
+
   
+}
+
+@media screen and (max-width: 425px) {
+  .swiper-slide img {
+    /* display: block; */
+    /* width: 100%;
+    height: 100%; */
+    object-fit: cover;
+    width: 200px;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .SlideWrapper{
+    margin-bottom: 0px;
+    justify-content: center;
+    align-items: center;
+  
+  }
 }

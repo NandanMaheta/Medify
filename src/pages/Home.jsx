@@ -28,8 +28,10 @@ import piscology from "../assests/piscologist.png"
 import stetoscope from "../assests/Stethoscope.png"
 import mri from "../assests/MRI.png"
 import dentistery from "../assests/Dentistery.png"
-import Carousel from "../components/common/Carousel/Carouse";
-import styleCar from "./HomePageCSS/Car.module.css"
+import Carousel1 from "../components/common/Carousel/Carouse";
+import styleCar from "./HomePageCSS/Car.module.css";
+import Download from "../components/common/Download";
+import Footer from "../components/common/Footer";
 
 export default function Home() {
   const { width } = useWidth();
@@ -248,7 +250,7 @@ export default function Home() {
     return(
       <div className={styleCar.Wrapper}>
         <p className={styleCar.Text}>Our Medical Specialist</p>
-        <div className={styleCar.Carousel}><Carousel/></div>
+        <Carousel1/>
       </div>
     )
   }
@@ -262,8 +264,8 @@ export default function Home() {
       <Advertise />
       <Specialization />
       <Carousel/>
-      
-     
+      <Download/>
+      <Footer/>
     </div>
   );
 }

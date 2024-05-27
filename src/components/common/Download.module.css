@@ -1,0 +1,185 @@
+.parentDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    81deg,
+    #e7f0ff 9.01%,
+    rgba(232, 241, 255, 0.47) 89.11%
+  );
+  margin-bottom: 2px;
+}
+
+.Wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 542px;
+
+  /* position: relative; */
+
+  /* background: linear-gradient(
+    81deg,
+    #e7f0ff 9.01%,
+    rgba(232, 241, 255, 0.47) 89.11%
+  ); */
+}
+
+.ImageContainer {
+  img {
+    margin-top: 50px;
+    width: 540px;
+    height: 500px;
+  }
+}
+
+.smallMobile {
+  position: absolute;
+  top: 114px;
+  left: 126px;
+  z-index: 3;
+}
+
+.smallMobileWallpaper {
+  position: absolute;
+  top: 145px;
+  left: 136px;
+  z-index: 2;
+}
+
+.bigMobile {
+  position: absolute;
+  left: 325px;
+  top: 38px;
+  z-index: 1;
+}
+
+.BigMobileWallpaper {
+  position: absolute;
+  top: 75px;
+  left: 332px;
+}
+
+.downloadText {
+  width: 338px;
+  height: 134px;
+
+  p {
+    font-family: Poppins;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 67px;
+    text-align: left;
+
+    span {
+      color: #2aa7ff;
+    }
+  }
+}
+
+.inputContainer {
+  margin-top: 18px;
+  display: flex;
+
+  input {
+    background: #fafbfe;
+    width: 200px;
+    border: none;
+    margin-right: 10px;
+  }
+}
+
+.inputNum {
+  width: Hug (55.38px) px;
+  height: Hug (47px) px;
+  padding: 15px 15.38px 15px 15px;
+  border: 0px 1px 0px 0px;
+
+  background: #fafbfe;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  border-right: 1px solid #b4b4be4d;
+}
+
+.buttonGroup {
+
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+
+  img {
+    width: 168px;
+    height: 58px;
+
+    
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .Wrapper {
+    flex-direction: column;
+  }
+
+  .ImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+
+    img {
+      /* margin-top: 50px; */
+      width: 320px;
+      height: 320px;
+    }
+  }
+  
+  .parentDiv {
+    margin-top: -500px;
+    height: 1550px;
+  }
+
+  .textContainer{
+    height: auto;
+  }
+
+  .downloadText{
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Wrapper {
+    flex-direction: column;
+  }
+
+  .img {
+    /* margin-top: 50px; */
+    width: 270px;
+    height: 270px;
+  }
+
+  .BtmLine{
+    margin-left: 20px;
+  }
+  .downloadText {
+    width: 300px;
+    height: auto;
+  
+    p {
+      font-family: Poppins;
+      font-size: 22px;
+      line-height: 37px;
+      text-align: left;
+      margin-left: 20px;
+      
+  
+      span {
+        color: #2aa7ff;
+      }
+    }
+  }
+  
+}
