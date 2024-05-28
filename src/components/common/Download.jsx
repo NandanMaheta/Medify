@@ -29,9 +29,7 @@ export default function Download() {
           <div className={styles.inputContainer}>
             <div className={styles.inputNum}>+91</div>
             <input type="text" />
-            <Button variant="contained" size="l">
-              Send SMS
-            </Button>
+            <button className={styles.btn}>Send SMS</button>
           </div>
 
           <div className={styles.buttonGroup}>

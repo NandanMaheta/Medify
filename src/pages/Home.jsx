@@ -20,19 +20,27 @@ import item3 from "../assests/AdvCarouselItem3.svg";
 import { ReactComponent as NSDot } from "../assests/NotSelectedDot.svg";
 import { ReactComponent as SDot } from "../assests/SelectedDot.svg";
 import stylesSpc from "./HomePageCSS/Specialization.module.css";
-import blood from "../assests/blood.png"
-import cardiology from "../assests/cardiology.png"
-import xray from "../assests/X-Ray.png"
-import laboratory from "../assests/laboratory.png"
-import piscology from "../assests/piscologist.png"
-import stetoscope from "../assests/Stethoscope.png"
-import mri from "../assests/MRI.png"
-import dentistery from "../assests/Dentistery.png"
+import blood from "../assests/blood.png";
+import cardiology from "../assests/cardiology.png";
+import xray from "../assests/X-Ray.png";
+import laboratory from "../assests/laboratory.png";
+import piscology from "../assests/piscologist.png";
+import stetoscope from "../assests/Stethoscope.png";
+import mri from "../assests/MRI.png";
+import dentistery from "../assests/Dentistery.png";
 import Carousel1 from "../components/common/Carousel/Carouse";
 import styleCar from "./HomePageCSS/Car.module.css";
 import Download from "../components/common/Download";
 import Footer from "../components/common/Footer";
-
+import stylesPatient from "./HomePageCSS/PatientCaring.module.css";
+import RightAwr from "../assests/RightARW.png";
+import PatientCare from "../assests/PatientCareImage.png";
+import styleNews from "./HomePageCSS/News.module.css";
+import newsimage from "../assests/newsimage.png";
+import cardDoc from "../assests/carddoctor.png";
+import stylesFamily from "./HomePageCSS/Family.module.css";
+import FamilyPic from "../assests/FamilyPic.png";
+import AccordionComponent from "../components/common/Accordin";
 export default function Home() {
   const { width } = useWidth();
 
@@ -233,27 +241,221 @@ export default function Home() {
       <div className={stylesSpc.Wrapper}>
         <p className={stylesSpc.text}>Find by specialisation</p>
         <div className={stylesSpc.iconwrapper}>
-          <div className={stylesSpc.item}><img src={dentistery} alt="Dentistry" /><span>Dentistry</span></div>
-          <div className={stylesSpc.item}><img src={stetoscope} alt="Primary Care" /><span>Primary Care</span></div>
-          <div className={stylesSpc.item}><img src={cardiology} alt="Cardiology" /><span>Cardiology</span></div>
-          <div className={stylesSpc.item}><img src={mri} alt="MRI Resanance" /><span>MRI Resanance</span></div>
-          <div className={stylesSpc.item}><img src={blood} alt="Blood Test" /><span>Blood Test</span></div>
-          <div className={stylesSpc.item}><img src={piscology} alt="Piscologist" /><span>Piscologist</span></div>
-          <div className={stylesSpc.item}><img src={laboratory} alt="Laboratory" /><span>Laboratory</span></div>
-          <div className={stylesSpc.item}><img src={xray} alt="X-Ray" /><span>X-Ray</span></div>
+          <div className={stylesSpc.item}>
+            <img src={dentistery} alt="Dentistry" />
+            <span>Dentistry</span>
+          </div>
+          <div className={stylesSpc.item}>
+            <img src={stetoscope} alt="Primary Care" />
+            <span>Primary Care</span>
+          </div>
+          <div className={stylesSpc.item}>
+            <img src={cardiology} alt="Cardiology" />
+            <span>Cardiology</span>
+          </div>
+          <div className={stylesSpc.item}>
+            <img src={mri} alt="MRI Resanance" />
+            <span>MRI Resanance</span>
+          </div>
+          <div className={stylesSpc.item}>
+            <img src={blood} alt="Blood Test" />
+            <span>Blood Test</span>
+          </div>
+          <div className={stylesSpc.item}>
+            <img src={piscology} alt="Piscologist" />
+            <span>Piscologist</span>
+          </div>
+          <div className={stylesSpc.item}>
+            <img src={laboratory} alt="Laboratory" />
+            <span>Laboratory</span>
+          </div>
+          <div className={stylesSpc.item}>
+            <img src={xray} alt="X-Ray" />
+            <span>X-Ray</span>
+          </div>
         </div>
       </div>
     );
   };
 
   const Carousel = () => {
-    return(
+    return (
       <div className={styleCar.Wrapper}>
         <p className={styleCar.Text}>Our Medical Specialist</p>
-        <Carousel1/>
+        <Carousel1 />
       </div>
-    )
-  }
+    );
+  };
+
+  const PatientCaring = () => {
+    return (
+      <div className={stylesPatient.Wrapper}>
+        <div className={stylesPatient.Subwrapper}>
+          <div className={stylesPatient.left}>
+            {width < 1023 ? (
+              <img src={PatientCare} alt="" width="80%" height="80%" />
+            ) : (
+              <img src={PatientCare} alt="" />
+            )}
+          </div>
+          <div className={stylesPatient.Right}>
+            <p className={stylesPatient.Firstline}>
+              HELPING PATIENTS FROM AROUND THE GLOBE!!
+            </p>
+            <p className={stylesPatient.SecondLine}>Patient Caring</p>
+            <p className={stylesPatient.Para}>
+              Our goal is to deliver quality of care in a courteous, respectful,
+              and compassionate manner. We hope you will allow us to care for
+              you and strive to be the first and best choice for healthcare.
+            </p>
+            <div>
+              <img src={RightAwr} alt="" />
+              <span className={stylesPatient.Bullets}>
+                Stay Updated About Your Health
+              </span>
+            </div>
+            <div>
+              <img src={RightAwr} alt="" />
+              <span className={stylesPatient.Bullets}>
+                Check Your Results Online
+              </span>
+            </div>
+            <div>
+              <img src={RightAwr} alt="" />
+              <span className={stylesPatient.Bullets}>
+                Manage Your Appointments
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const News = () => {
+    return (
+      <div className={styleNews.Wrapper}>
+        <div className={styleNews.Top}>
+          <p className={styleNews.firstline}>Blog & News</p>
+          <p className={styleNews.secondline}>Read Our Latest News</p>
+        </div>
+        <div className={styleNews.Bottom}>
+          <div className={styleNews.CardWrapper}>
+            <div className={styleNews.Card}>
+              <div>
+                {width > 1023 ? (
+                  <img src={newsimage} alt="" />
+                ) : (
+                  <img src={newsimage} width="90%" />
+                )}
+              </div>
+              <div className={styleNews.textCont}>
+                <div className={styleNews.firstspan}>
+                  <span style={{ marginRight: "6px" }}>Medical</span>
+                  <span style={{ marginRight: "6px" }}>|</span>
+                  <span>March 31, 2022</span>
+                </div>
+                <p className={styleNews.secondLine}>
+                  6 Tips To Protect Your Mental Health When You’re Sick
+                </p>
+                <div className={styleNews.lil}>
+                  <img src={cardDoc} alt="" />
+                  <span
+                    className={styleNews.LittleDoc}
+                    style={{ marginLeft: "25px" }}
+                  >
+                    Rebecca Lee
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className={styleNews.Card}>
+              <div>
+                {width > 1023 ? (
+                  <img src={newsimage} alt="" />
+                ) : (
+                  <img src={newsimage} width="90%" />
+                )}
+              </div>
+              <div className={styleNews.textCont}>
+                <div className={styleNews.firstspan}>
+                  <span style={{ marginRight: "6px" }}>Medical</span>
+                  <span style={{ marginRight: "6px" }}>|</span>
+                  <span>March 31, 2022</span>
+                </div>
+                <p className={styleNews.secondLine}>
+                  6 Tips To Protect Your Mental Health When You’re Sick
+                </p>
+                <div className={styleNews.lil}>
+                  <img src={cardDoc} alt="" />
+                  <span
+                    className={styleNews.LittleDoc}
+                    style={{ marginLeft: "25px" }}
+                  >
+                    Rebecca Lee
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className={styleNews.Card}>
+              <div>
+                {width > 1023 ? (
+                  <img src={newsimage} alt="" />
+                ) : (
+                  <img src={newsimage} width="90%" />
+                )}
+              </div>
+              <div className={styleNews.textCont}>
+                <div className={styleNews.firstspan}>
+                  <span style={{ marginRight: "6px" }}>Medical</span>
+                  <span style={{ marginRight: "6px" }}>|</span>
+                  <span>March 31, 2022</span>
+                </div>
+                <p className={styleNews.secondLine}>
+                  6 Tips To Protect Your Mental Health When You’re Sick
+                </p>
+                <div className={styleNews.lil}>
+                  <img src={cardDoc} alt="" />
+                  <span
+                    className={styleNews.LittleDoc}
+                    style={{ marginLeft: "25px" }}
+                  >
+                    Rebecca Lee
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const OurFamilies = () => {
+    return (
+      <div className={stylesFamily.Wrapper}>
+        <div className={stylesFamily.Subwrapper}>
+          <div className={stylesFamily.Right}>
+            <p className={stylesFamily.Firstline}>
+            CARING FOR THE HEALTH OF YOU AND YOUR FAMILY.
+            </p>
+            <p className={stylesFamily.SecondLine}>Our Families</p>
+            <p className={stylesFamily.Para}>
+            We will work with you to develop individualised care plans, including management of chronic diseases. If we cannot assist, we can provide referrals or advice about the type of practitioner you require. We treat all enquiries sensitively and in the strictest confidence.
+            </p>
+            
+          </div>
+          <div className={stylesFamily.left}>
+            {width < 1023 ? (
+              <div style={{textAlign:"center"}}><img src={FamilyPic} alt="" width="95%" height="95%" /></div>
+            ) : (
+              <div><img src={FamilyPic} alt="" /></div>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className={styles.LandingPage}>
@@ -263,9 +465,13 @@ export default function Home() {
       <SearchForm />
       <Advertise />
       <Specialization />
-      <Carousel/>
-      <Download/>
-      <Footer/>
+      <Carousel />
+      <PatientCaring />
+      <News />
+      <OurFamilies />
+      <AccordionComponent/>
+      <Download />
+      <Footer />
     </div>
   );
 }
