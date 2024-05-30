@@ -95,6 +95,8 @@ const DetailsPage1 = () => {
 
   const MedicalCen = () => {
     // medicalCenters data to fetch: Hospital Name, Hospital Address, City, State, ZIP Code, Hospital overall rating
+    
+
 
     return (
       <div className={styles.Wrapper}>

@@ -190,6 +190,11 @@ border-radius: 8px;
     flex-direction: column;
   }
 
+  .parentDiv {
+    margin-top: -500px;
+    height: 1550px;
+  }
+
   .img {
     /* margin-top: 50px; */
     width: 270px;
