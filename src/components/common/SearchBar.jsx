@@ -1,7 +1,8 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import { ReactComponent as SearchBlack } from "../../assests/SearchBlack.svg";
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { ReactComponent as SearchBlack } from "../../assests/SearchBlack.svg"
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -13,42 +14,51 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'center',
 }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
+const StyledSelect = styled(Select)(({ theme }) => ({
   width: '285px',
   height: '50px',
-  // background: '#FAFBFE',
   border: '1px solid #F0F0F0',
   borderRadius: '8px',
   color: 'inherit',
-  '& .MuiInputBase-input': {
-    fontFamily: 'Poppins, sans-serif',
-    fontSize: '14px',
-    fontWeight: '400',
-    lineHeight: '21px',
-    letterSpacing: '0.02em',
-    textAlign: 'left',
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-  },
+  // background: '#FAFBFE',
+  fontFamily: 'Poppins, sans-serif',
+  fontSize: '14px',
+  fontWeight: '400',
+  lineHeight: '21px',
+  letterSpacing: '0.02em',
+  textAlign: 'left',
+  paddingLeft: `calc(1em + ${theme.spacing(4)})`,
   '&::placeholder': {
     color: '#ABB6C7',
     opacity: 1,
   },
+  '& .MuiSelect-icon': {
+    right: '10px',
+  },
 }));
 
-export default function SearchBar({ value, onChange, name, placeholder }) {
+export default function SearchDropdown({ value, onChange, name, placeholder, options }) {
   return (
     <div style={{ position: 'relative', width: '100%' }}>
       <SearchIconWrapper>
         <SearchBlack />
       </SearchIconWrapper>
-      <StyledInputBase
-        placeholder={placeholder}
-        inputProps={{ 'aria-label': 'search', name }}
+      <StyledSelect
         value={value}
         onChange={onChange}
-      />
+        displayEmpty
+        inputProps={{ 'aria-label': 'search', name }}
+        renderValue={selected => selected || placeholder}
+      >
+        <MenuItem disabled value="">
+          {placeholder}
+        </MenuItem>
+        {options.map(option => (
+          <MenuItem key={option} value={option}>
+            {option}
+          </MenuItem>
+        ))}
+      </StyledSelect>
     </div>
   );
 }

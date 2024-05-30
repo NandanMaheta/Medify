@@ -10,9 +10,9 @@ import { ReactComponent as Capsule } from "../assests/Capsule.svg";
 import { ReactComponent as Hospital } from "../assests/Hospital.svg";
 import { ReactComponent as DrugStore } from "../assests/Drugstore.svg";
 import { useWidth } from "../customhook";
-import SearchBar from "../components/common/SearchBar";
+import SearchDropdown from "../components/common/SearchBar"
 import stylesForm from "./HomePageCSS/SearchForm.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import stylesADV from "./HomePageCSS/Advertise.module.css";
 import item1 from "../assests/AdvCarouselItem1.svg";
 import item2 from "../assests/AdvCarouselitem2.svg";
@@ -41,8 +41,13 @@ import cardDoc from "../assests/carddoctor.png";
 import stylesFamily from "./HomePageCSS/Family.module.css";
 import FamilyPic from "../assests/FamilyPic.png";
 import AccordionComponent from "../components/common/Accordin";
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+
 export default function Home() {
   const { width } = useWidth();
+  
+ 
 
   const HeroSection = () => {
     return (
@@ -89,34 +94,82 @@ export default function Home() {
   };
 
   const SearchForm = () => {
+    const [states, setStates] = useState([]);
     const [state, setState] = useState("");
     const [city, setCity] = useState("");
-
+    const [cities, setCities] = useState([]);
+    const [medicalCenters, setMedicalCenters] = useState([]);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+      // Fetch all states
+      axios.get('https://meddata-backend.onrender.com/states')
+        .then(response => {
+          if (response && response.data) {
+            setStates(response.data);
+          }
+        })
+        .catch(error => {
+          console.error('There was an error fetching the states!', error);
+        });
+    }, []);
+  
+    const handleStateChange = (selectedState) => {
+      setState(selectedState);
+      // Fetch cities for the selected state
+      axios.get(`https://meddata-backend.onrender.com/cities/${selectedState}`)
+        .then(response => {
+          if (response && response.data) {
+            setCities(response.data);
+          }
+        })
+        .catch(error => {
+          console.error('There was an error fetching the cities!', error);
+        });
+    };
+  
     const handleSubmit = (event) => {
       event.preventDefault();
-      // Handle form submission logic here
-      console.log("Form submitted");
-      console.log("State:", state);
-      console.log("City:", city);
+      if (!state || !city) {
+        alert("Please select both state and city");
+        return;
+      }
+      // Fetch medical centers based on selected state and city
+      axios.get(`https://meddata-backend.onrender.com/data?state=${state}&city=${city}`)
+        .then(response => {
+          if (response && response.data) {
+            // Pass data to the new page
+            navigate('/medical-centers', {
+              state: { medicalCenters: response.data }
+            });
+          }
+        })
+        .catch(error => {
+          console.error('There was an error fetching the medical centers!', error);
+        });
     };
-
+  
     return (
       <div className={stylesForm.SearchFormWrapper}>
         <form onSubmit={handleSubmit}>
           <div>
-            <SearchBar
+            <SearchDropdown
               placeholder="State"
               name="StateForm"
               value={state}
-              onChange={(e) => setState(e.target.value)}
+              onChange={(e) => handleStateChange(e.target.value)}
+              options={states}
+              required
             />
           </div>
           <div>
-            <SearchBar
+            <SearchDropdown
               placeholder="City"
               name="CityForm"
               value={city}
               onChange={(e) => setCity(e.target.value)}
+              options={cities}
+              required
             />
           </div>
           <div>
@@ -460,7 +513,7 @@ export default function Home() {
   return (
     <div className={styles.LandingPage}>
       <Header />
-      <NavBar />
+      <NavBar bg="linear-gradient(81deg, #E7F0FF 9.01%, rgba(232, 241, 255, 0.47) 89.11%)"/>
       <HeroSection />
       <SearchForm />
       <Advertise />

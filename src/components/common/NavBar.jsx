@@ -9,11 +9,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import { useWidth } from "../../customhook";
 import styles from "./NavBar.module.css";
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
-export default function NavBar() {
+export default function NavBar({bg}) {
   const { width, height } = useWidth();
   const pages = ["Products", "Pricing", "Blog"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
+  const navigate = useNavigate();
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -33,20 +36,24 @@ export default function NavBar() {
     setAnchorElUser(null);
   };
 
+  NavBar.propTypes = {
+    bg: PropTypes.string,
+  };
+
   if (width > 1022) {
     return (
-      <nav className={styles.NavBarWrapper}>
+      <nav className={styles.NavBarWrapper} style={{background: bg}}>
         
-          <Medify style={{ width: "92px", height: "27px",marginLeft:"95px" }} />
+          <Medify style={{ width: "92px", height: "27px",marginLeft:"95px",cursor:"pointer" }} onClick={() => navigate("/")} />
         
-        <div className={styles.NavBarMenu}>
+        <div className={styles.NavBarMenu} >
           <ul className={styles.subCont}>
-            <li className={styles.menu}>Find Doctors</li>
-            <li className={styles.menu}>Hospitals</li>
-            <li className={styles.menu}>Medicines</li>
-            <li className={styles.menu}>Surgeries</li>
-            <li className={styles.menu}>Software for provider</li>
-            <li className={styles.menu}>Facilities</li>
+            <li className={styles.menu} onClick={() => navigate('/medical-centers')}>Find Doctors</li>
+            <li className={styles.menu} onClick={() => navigate('/medical-centers')}>Hospitals</li>
+            <li className={styles.menu} onClick={() => navigate('/medical-centers')}>Medicines</li>
+            <li className={styles.menu} onClick={() => navigate('/medical-centers')}>Surgeries</li>
+            <li className={styles.menu} onClick={() => navigate('/medical-centers')}>Software for provider</li>
+            <li className={styles.menu} onClick={() => navigate('/medical-centers')}>Facilities</li>
           </ul>
           <button className={styles.booking}>My bookings</button>
         </div>
@@ -55,7 +62,7 @@ export default function NavBar() {
   } else {
     return (
       <AppBar position="static" sx={{
-        background: 'linear-gradient(81deg, #e7f0ff 9.01%, rgba(232, 241, 255, 0.47) 89.11%)',padding:"10px"
+        background: bg,padding:"10px"
       }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
@@ -112,7 +119,7 @@ export default function NavBar() {
           color: "#102851",
           cursor: "pointer",
         }}
-        onClick={() => window.location.reload()}
+        onClick={() => navigate('/medical-centers')}
       >
         Find Doctors
       </li>
@@ -127,7 +134,8 @@ export default function NavBar() {
           lineHeight: "21px",
           color: "#102851",
           cursor: "pointer",
-        }}
+          
+        }}onClick={() => navigate('/medical-centers')}
       >
         Hospitals
       </li>
@@ -142,7 +150,7 @@ export default function NavBar() {
           lineHeight: "21px",
           color: "#102851",
           cursor: "pointer",
-        }}
+        }}onClick={() => navigate('/medical-centers')}
       >
         Medicines
       </li>
@@ -157,7 +165,7 @@ export default function NavBar() {
           lineHeight: "21px",
           color: "#102851",
           cursor: "pointer",
-        }}
+        }}onClick={() => navigate('/medical-centers')}
       >
         Surgeries
       </li>
@@ -172,7 +180,7 @@ export default function NavBar() {
           lineHeight: "21px",
           color: "#102851",
           cursor: "pointer",
-        }}
+        }}onClick={() => navigate('/medical-centers')}
       >
         Software for provider
       </li>
@@ -187,7 +195,7 @@ export default function NavBar() {
           lineHeight: "21px",
           color: "#102851",
           cursor: "pointer",
-        }}
+        }}onClick={() => navigate('/medical-centers')}
       >
         Facilities
       </li>
