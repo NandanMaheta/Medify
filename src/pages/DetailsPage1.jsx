@@ -19,6 +19,15 @@ import CardImage from "../assests/CardImage.png";
 import Rupee from "../assests/₹.png";
 import Rs500 from "../assests/500.png";
 import thumb from "../assests/thumbsup.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import { Pagination, Navigation } from "swiper/modules";
 
 const DetailsPage1 = () => {
   const { medicalCenters, setMedicalCenters } = useSearch();
@@ -27,6 +36,42 @@ const DetailsPage1 = () => {
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
   const [cities, setCities] = useState([]);
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedSlot, setSelectedSlot] = useState("");
+  const [selectedHospital, setSelectedHospital] = useState(null);
+  const [hostialdata, setHospitalData] = useState({});
+
+  const generateDates = () => {
+    const dates = [];
+    for (let i = 0; i < 7; i++) {
+      const date = new Date();
+      date.setDate(date.getDate() + i);
+      dates.push(date.toDateString());
+    }
+    return dates;
+  };
+
+  const slots = {
+    Morning: ["08:30 AM", "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM"],
+    Afternoon: ["12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM"],
+    Evening: ["05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM", "07:00 PM"],
+  };
+
+  const handleSlotBooking = () => {
+    setTimeout(() => {
+      const bookingData = {
+        hospital: selectedHospital,
+        date: selectedDate,
+        slot: selectedSlot,
+        hostialfulldata: hostialdata,
+      };
+      let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+      bookings.push(bookingData);
+      localStorage.setItem("bookings", JSON.stringify(bookings));
+      alert("Booking Confirmed!");
+      setSelectedHospital("");
+    }, 500);
+  };
 
   useEffect(() => {
     if (location.state && location.state.medicalCenters) {
@@ -95,12 +140,10 @@ const DetailsPage1 = () => {
 
   const MedicalCen = () => {
     // medicalCenters data to fetch: Hospital Name, Hospital Address, City, State, ZIP Code, Hospital overall rating
-    
-
 
     return (
       <div className={styles.Wrapper}>
-        {medicalCenters.length && (
+        {medicalCenters.length && Array.isArray(medicalCenters) && (
           <div className={styles.Heading}>
             <p className={styles.FirstLine}>
               {medicalCenters.length}{" "}
@@ -118,69 +161,143 @@ const DetailsPage1 = () => {
         {medicalCenters.length &&
           medicalCenters.map((item) => (
             <div className={styles.CardWrapper}>
-              <div className={styles.CardLeft}>
-                <div
-                  style={{
-                    width: "140px",
-                    height: "140px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <img src={CardImage} style={{marginRight:"15px"}} />
-                </div>
-                <div className={styles.CardLeftContent}>
-                  <span className={styles.HosptialName}>{item["Hospital Name"]}</span>
-                  <div className={styles.HosptialInfo}>
-                    <span>{item["City"]}, </span>
-                    <span>{item["State"]}</span>
-                    <br />
-                    <span>{item["Hospital Type"]}</span>
-                  </div>
-                  <div className={styles.FreeConsult}>
-                    {" "}
-                    <span className={styles.Free}>FREE</span>
-                    <span>
-                      <img src={Rupee} alt="" />
-                    </span>
-                    <span>
-                      <img src={Rs500} alt="" />
-                    </span>
-                    <span className={styles.ConsultText}>Consultation fee at clinic</span>
-                  </div>
-                  <div className={styles.Rating}
+              <div className={styles.MiniWrapper}>
+                <div className={styles.CardLeft}>
+                  <div
                     style={{
-                      background: "#00A500",
+                      width: "140px",
+                      height: "140px",
                       display: "flex",
-                      justifyContent: "center",
                       alignItems: "center",
-                      width: "44.08px",
-                      height: "22.5px",
-                      color: "#FFFFFF",
-                      fontFamily: "Lato",
-                      fontSize: "14px",
-                      fontWeight: "700",
-                      lineHeight: "14px",
-                      border: "0",
-                      borderRadius: "3.5px",
+                      justifyContent: "center",
                     }}
                   >
-                    <img src={thumb} alt="" />
-                    <span style={{ marginLeft: "5px" }}>
-                      {item["Hospital overall rating"]}
+                    <img src={CardImage} style={{ marginRight: "15px" }} />
+                  </div>
+                  <div className={styles.CardLeftContent}>
+                    <span className={styles.HosptialName}>
+                      {item["Hospital Name"]}
                     </span>
+                    <div className={styles.HosptialInfo}>
+                      <span>{item["City"]}, </span>
+                      <span>{item["State"]}</span>
+                      <br />
+                      <span>{item["Hospital Type"]}</span>
+                    </div>
+                    <div className={styles.FreeConsult}>
+                      {" "}
+                      <span className={styles.Free}>FREE</span>
+                      <span>
+                        <img src={Rupee} alt="" />
+                      </span>
+                      <span>
+                        <img src={Rs500} alt="" />
+                      </span>
+                      <span className={styles.ConsultText}>
+                        Consultation fee at clinic
+                      </span>
+                    </div>
+                    <div
+                      className={styles.Rating}
+                      style={{
+                        background: "#00A500",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: "44.08px",
+                        height: "22.5px",
+                        color: "#FFFFFF",
+                        fontFamily: "Lato",
+                        fontSize: "14px",
+                        fontWeight: "700",
+                        lineHeight: "14px",
+                        border: "0",
+                        borderRadius: "3.5px",
+                      }}
+                    >
+                      <img src={thumb} alt="" />
+                      <span style={{ marginLeft: "5px" }}>
+                        {item["Hospital overall rating"]}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.CardRight}>
+                  <div className={styles.CardRightContent}>
+                    <p className={styles.CardRightText}>Available Today</p>
+                    <button
+                      className={styles.CardRightButton}
+                      onClick={() => {
+                        setSelectedHospital(item["Hospital Name"]);
+                      }}
+                    >
+                      Book FREE Center Visit
+                    </button>
                   </div>
                 </div>
               </div>
-              <div className={styles.CardRight}>
-                <div className={styles.CardRightContent}>
-                  <p className={styles.CardRightText}>Available Today</p>
-                  <button className={styles.CardRightButton}>
-                    Book FREE Center Visit
-                  </button>
+              {selectedHospital === item["Hospital Name"] && (
+                <div className={styles.CarouselWrapper}>
+                  <Swiper
+                    pagination={{
+                      type: "progressbar",
+                    }}
+                    spaceBetween={10}
+                    slidesPerView={3}
+                    navigation={true}
+                    modules={[Pagination, Navigation]}
+                    className={styles.SwiperSlides}
+                  >
+                    {generateDates().map((date, dateIndex) => (
+                      <div className={styles.DateWrapper} key={dateIndex}>
+                        <SwiperSlide
+                          key={dateIndex}
+                          onClick={() => setSelectedDate(date)}
+                        >
+                          <div
+                            className={`${styles.CarouselSlide} ${
+                              selectedDate === date ? styles.selected : ""
+                            }`}
+                          >
+                            {date}
+                          </div>
+                        </SwiperSlide>
+                      </div>
+                    ))}
+                  </Swiper>
+                  <div className={styles.SlotsWrapper}>
+                    {Object.keys(slots).map((timeOfDay) => (
+                      <div key={timeOfDay}>
+                        <h3>{timeOfDay}</h3>
+                        {slots[timeOfDay].map((slot) => (
+                          <button
+                            key={slot}
+                            className={
+                              selectedSlot === slot ? styles.selected : ""
+                            }
+                            onClick={() => {
+                              setSelectedSlot(slot);
+                              setHospitalData(item);
+                            }}
+                          >
+                            {slot}
+                          </button>
+                        ))}
+                      </div>
+                    ))}
+                    <button
+                      onClick={() => {
+                        if(selectedDate === "" || selectedSlot === ""){
+                          alert("Please select a date and time slot")
+                        }else{  handleSlotBooking();}
+                      
+                      }}
+                    >
+                      Book Free Slot
+                    </button>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           ))}
       </div>
