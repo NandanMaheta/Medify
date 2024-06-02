@@ -99,8 +99,8 @@ border-radius: 8px;
 }
 
 .inputNum {
-  width: Hug (55.38px) px;
-  height: Hug (47px) px;
+  width: 55.38px;
+  height: auto;
   padding: 15px 15.38px 15px 15px;
   border: 0px 1px 0px 0px;
 
@@ -128,6 +128,8 @@ border-radius: 8px;
 @media screen and (max-width: 992px) {
   .Wrapper {
     flex-direction: column;
+    margin-top: 20px;
+    background: none;
   }
 
   .ImageContainer {
@@ -135,6 +137,7 @@ border-radius: 8px;
     justify-content: center;
     align-items: center;
     height: auto;
+    background-color: none;
 
     img {
       /* margin-top: 50px; */
@@ -188,11 +191,13 @@ border-radius: 8px;
 @media screen and (max-width: 320px) {
   .Wrapper {
     flex-direction: column;
+    background-color: none;
   }
 
   .parentDiv {
     margin-top: -500px;
     height: 1550px;
+    background-color: none;
   }
 
   .img {

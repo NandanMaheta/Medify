@@ -46,6 +46,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
   const { width } = useWidth();
+  const navigate = useNavigate();
   
  
 
@@ -58,7 +59,7 @@ export default function Home() {
               <p className={styles.HeroText}>Skip the travel! Find Online</p>
             ) : null}
             <span className={styles.HeroSpan}>Medical </span>{" "}
-            <span className={styles.HeroSpan2}>Centers</span>
+            <span className={styles.HeroSpan2} >Centers</span>
           </div>
 
           <div className={styles.HeroPara}>
@@ -69,7 +70,7 @@ export default function Home() {
           </div>
 
           <div style={{ marginTop: "25px" }}>
-            <button className={styles.HeroButton}>Find Centers</button>
+            <button className={styles.HeroButton}  onClick={() => navigate("/medical-centers")}>Find Centers</button>
           </div>
         </div>
         {width > 768 ? (
@@ -99,7 +100,7 @@ export default function Home() {
     const [city, setCity] = useState("");
     const [cities, setCities] = useState([]);
     const [medicalCenters, setMedicalCenters] = useState([]);
-    const navigate = useNavigate();
+    
   
     useEffect(() => {
       // Fetch all states

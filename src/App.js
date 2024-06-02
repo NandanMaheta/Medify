@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home"
 import DetailsPage1 from './pages/DetailsPage1';
 import { SearchProvider } from './pages/SearchContext';
+import BookingPage from './pages/BookingPage';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/medical-centers" element={<DetailsPage1 />} />
+        <Route path="/bookings" element={<BookingPage />} />
       </Routes>
     </Router>
     </SearchProvider>
